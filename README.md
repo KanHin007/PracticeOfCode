@@ -8,3 +8,5 @@ let code niubility
 /src/test/*
 *.iml
 即可
+
+record https://leetcode-cn.com test
