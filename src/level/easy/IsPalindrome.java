@@ -1,5 +1,7 @@
 package level.easy;
 
+import java.util.ArrayList;
+
 /**
  * @author lawrence
  * 不用转化字符串实现判断是否是回文数
@@ -26,10 +28,39 @@ public class IsPalindrome {
 
     public static boolean isPalindrome(int x){
 
+        if(x < 0){
+            return false;
+        }
 
+        ArrayList<Integer> list = new ArrayList<>();
 
-        return false;
+        int y = 0;
+        int remain = x;
+
+        while((y = (remain/10)) > 0){
+            int temp = remain - y * 10;
+            list.add(temp);
+            remain /= 10;
+            if(remain < 10){
+                list.add(remain);
+            }
+        }
+
+       // System.out.println(list.toString());
+
+        for(int i = 0 , j = list.size() - 1 ; i < j;i++,j--){
+            if(list.get(i).intValue() != list.get(j).intValue())
+                return false;
+        }
+
+        return true;
     }
+
+    public static void main(String[] args) {
+        System.out.println(isPalindrome(1221));
+    }
+
+
 
 
 }
